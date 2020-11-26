@@ -11,7 +11,7 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
 	Image img = new Image("spaceship.png");
     public Canhao(int px,int py){
         super(px,py);
-    }    
+    }
     
     @Override
     public void start() {
@@ -19,11 +19,15 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
         setLimV(Params.WINDOW_HEIGHT-100,Params.WINDOW_HEIGHT);
     }
     
-    @Override
+     @Override
     public void Update() {
-        setPosX(getX() + getDirH() * getSpeed());        
+    	setPosX(getX() + getDirH() * getSpeed());
+
+    	if (jaColidiu()) {
+    		deactivate();
+    	}
     }
-    
+
     @Override
     public void OnInput(KeyCode keyCode, boolean isPressed) {
         if (keyCode == KeyCode.LEFT){
@@ -43,9 +47,6 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
     
     @Override
     public void Draw(GraphicsContext graphicsContext) {
-        /*graphicsContext.setFill(Paint.valueOf("#FF0000"));
-        graphicsContext.fillRect(getX(), getY()+16, 32, 32);
-        graphicsContext.fillRect(getX()+8, getY()-16, 16, 48);*/
     	graphicsContext.drawImage(img, getX(), getY(), 42, 42);
-    }   
+    }
 }
