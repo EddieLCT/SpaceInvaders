@@ -15,6 +15,7 @@ public abstract class BasicElement implements Character{
     private boolean active;
     private boolean colidiu;
     private int direction_horizontal, direction_vertical;
+    private int hit = 0;
     
     public BasicElement(int startX,int startY){
         posX = startX;
@@ -70,8 +71,10 @@ public abstract class BasicElement implements Character{
         
         // Verifica colisão
         if ( ((p1x <= op1x && p2x >= op1x) && (p1y <= op1y && p2y >= op1y)) ||
-             ((p1x <= op2x && p2x >= op2x) && (p1y <= op2y && p2y >= op2y)) ){
+             ((p1x <= op2x && p2x >= op2x) && (p1y <= op2y && p2y >= op2y)) ){        	
             colidiu = true;
+            if (outro instanceof Alien_Blue) {
+            }
             //outro.setColidiu();
         }
     }
@@ -102,6 +105,10 @@ public abstract class BasicElement implements Character{
     
     public int getSpeed(){
         return(speed);
+    }
+    
+    public void setColidiu(Boolean aux) {
+    	colidiu = aux;
     }
     
     public void setPosX(int p){
@@ -158,6 +165,14 @@ public abstract class BasicElement implements Character{
     public  boolean isActive(){
         return(active);
     }
+    
+    public int contaHits() {
+		if (jaColidiu()) {
+			hit++;
+			setColidiu(false);
+		}
+		return hit;
+	}
     
     @Override
     public abstract void start();    
