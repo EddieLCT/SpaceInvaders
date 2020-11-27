@@ -16,14 +16,12 @@ public class Alien_Blue extends Alien{
 	}
 	
 	@Override
-    public void Update(){		
-		if (jaColidiu()){
-			hit++;
-		}
-		if (hit == 20 ) {
+    public void Update(){
+		//if (jaColidiu) {
+		if (contaHits() == 4){
 			deactivate();
-		}
-       
+			hit = 0;
+		}      
         	setPosX(getX() + getDirH() * getSpeed()); 	
         	// Se chegou no lado direito da tela ...	            
             if (getX() >= getLMaxH()){	
@@ -34,7 +32,7 @@ public class Alien_Blue extends Alien{
             
         }
     }
-
+	
 	@Override
 	public void Draw(GraphicsContext graphicsContext) {
 		graphicsContext.drawImage(img, getX(), getY(), 32, 52);  
