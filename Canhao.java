@@ -23,7 +23,7 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
     public void Update() {
     	setPosX(getX() + getDirH() * getSpeed());
 
-    	if (jaColidiu()) {
+    	if (contaHits() == 3){
     		deactivate();
     	}
     }
