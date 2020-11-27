@@ -24,4 +24,5 @@ public class Alien_Purple extends Alien{
 	public int killPoints() {
 		return 5;
 	}
+
 }

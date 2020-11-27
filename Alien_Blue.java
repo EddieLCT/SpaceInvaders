@@ -20,6 +20,8 @@ public class Alien_Blue extends Alien{
 		//if (jaColidiu) {
 		if (contaHits() == 4){
 			deactivate();
+			setContaPontos(killPoints());
+			System.out.println(getContaPontos());
 			hit = 0;
 		}      
         	setPosX(getX() + getDirH() * getSpeed()); 	
@@ -27,8 +29,9 @@ public class Alien_Blue extends Alien{
             if (getX() >= getLMaxH()){	
                 // Reposiciona no lado esquerdo e ...
                 setPosX(getLMinH());
+                setPosY(getY() + 70);
                 // Sorteia o passo de avanço [1,5]	                
-                setSpeed(Params.getInstance().nextInt(5)+1);  
+                setSpeed(Params.getInstance().nextInt(2)+1);  
             
         }
     }
@@ -40,6 +43,6 @@ public class Alien_Blue extends Alien{
 
 	@Override
 	public int killPoints() {
-		return 10;
+		return 15;
 	}
 }

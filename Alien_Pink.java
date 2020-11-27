@@ -1,9 +1,12 @@
+import java.util.Random;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Paint;
 
 public class Alien_Pink extends Alien{
+	private Random random = new Random();
 	Image img = new Image("Enemy3.gif");
 	//Image img = new Image(getClass().getResourceAsStream("\SpaceInvaders\Imagens\Enemy3.gif"));
 	public Alien_Pink(int px, int py) {
@@ -14,6 +17,30 @@ public class Alien_Pink extends Alien{
 		setDirH(1);
 		setSpeed(8);
 	}
+	
+	@Override
+    public void Update(){
+		if (jaColidiu()){
+            deactivate();
+            setContaPontos(killPoints());
+			System.out.println(getContaPontos());
+        }else{
+        	int aux = random.nextInt(500);
+        	if (getX() == aux) {
+        		setPosX(aux);
+            	Game.getInstance().addChar(new EnemyShot(getX()+16,getY()+34));
+        	}
+        	setPosX(getX() + getDirH() * getSpeed()); 	
+        	// Se chegou no lado direito da tela ...	            
+            if (getX() >= getLMaxH()){
+                // Reposiciona no lado esquerdo e ...
+                setPosX(getLMinH());
+                setPosY(getY() + 70);
+                // Sorteia o passo de avanço [1,5]	                
+                setSpeed(Params.getInstance().nextInt(5)+1);  
+            }
+        }
+    }
 
 	@Override
 	public void Draw(GraphicsContext graphicsContext) {
