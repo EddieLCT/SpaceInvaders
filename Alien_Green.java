@@ -18,6 +18,9 @@ public class Alien_Green extends Alien{
 		if (jaColidiu()){
 			deactivate();
 		}
+		if(contaKills() == 5) {
+			setNextPhase(true);
+		}
        
         	setPosX(getX() + getDirH() * getSpeed()); 	
         	// Se chegou no lado direito da tela ...	            
@@ -41,11 +44,5 @@ public class Alien_Green extends Alien{
 		// TODO Auto-generated method stub
 		return 10;
 	}
-	
-	public boolean nextPhase() {
-		if(contaKills() == 5) {
-			return true;
-		}
-		return false;
-	}
+
 }

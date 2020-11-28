@@ -30,5 +30,4 @@ public class Alien_Purple extends Alien{
 		}
 		return false;
 	}
-
 }

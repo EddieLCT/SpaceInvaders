@@ -41,7 +41,14 @@ public abstract class Alien extends BasicElement{
 	    }
 	    
 	    @Override
-	    public abstract boolean nextPhase(); 
+	    public void setNextPhase(boolean b) {
+	    	endPhase = b;
+	    }
+	    
+	    @Override
+	    public boolean getNextPhase() {
+	    	return endPhase;
+	    }
 	    
 	    public abstract void Draw(GraphicsContext graphicsContext);
 	    public abstract int killPoints();

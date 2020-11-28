@@ -18,6 +18,8 @@ public interface Character {
     
     void start();
     boolean isActive();
+    boolean getNextPhase();
+    void setNextPhase(boolean b);
     void Update();
     void Draw(GraphicsContext graphicsContext);
 }

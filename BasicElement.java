@@ -167,8 +167,12 @@ public abstract class BasicElement implements Character{
     }
     
     @Override
-    public boolean nextPhase() {
+    public boolean getNextPhase() {
     	return(endPhase);
+    }
+    @Override
+    public void setNextPhase(boolean b) {
+    	endPhase = b;
     }
     
     public int contaHits() {

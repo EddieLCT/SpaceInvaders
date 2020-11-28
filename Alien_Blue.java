@@ -8,6 +8,7 @@ public class Alien_Blue extends Alien{
 	Image img = new Image("Enemy2.gif");
 	public Alien_Blue(int px, int py) {
 		super(px, py);
+		getNextPhase();
 	}
 	
 	@Override
@@ -24,7 +25,10 @@ public class Alien_Blue extends Alien{
 			setContaPontos(killPoints());
 			System.out.println(getContaPontos());
 			hit = 0;
-		}		       
+		}	
+		if(contaKills() == 5) {
+			setNextPhase(true);
+		}
         	setPosX(getX() + getDirH() * getSpeed()); 	
         	// Se chegou no lado direito da tela ...	            
             if (getX() >= getLMaxH()){	
@@ -49,13 +53,4 @@ public class Alien_Blue extends Alien{
 	public int killPoints() {
 		return 15;
 	}
-
-	@Override
-	public boolean nextPhase() {
-		if(contaKills() == 5) {
-			return true;
-		}
-		return true;
-	}
-
 }
