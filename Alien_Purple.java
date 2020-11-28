@@ -24,5 +24,11 @@ public class Alien_Purple extends Alien{
 	public int killPoints() {
 		return 5;
 	}
+	public boolean nextPhase() {
+		if(contaKills() == 5) {
+			return true;
+		}
+		return false;
+	}
 
 }

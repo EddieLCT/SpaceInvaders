@@ -31,9 +31,9 @@ public class Game {
     public void eliminate(Character c){
         activeChars.remove(c);
         }
-
+    
     public void Start() {
-        // RepositÃ³rio de personagens
+        // Repositório de personagens
         activeChars = new LinkedList();
         
         // Adiciona o canhao
@@ -41,23 +41,26 @@ public class Game {
         activeChars.add(canhao);
         
         for(int i=0; i<5; i++){
-            activeChars.add(new Alien_Pink(100+(i*60),60+i*40));
-
-        }        
+            activeChars.add(new Alien_Blue(100+(i*60),60+i*40));
+        }
         
-        for(Character c:activeChars){
-            c.start();
+        for(Character c: activeChars){
+            c.start();        	
         }
     }
     
     public void Update(long currentTime, long deltaTime) {
-        for(int i=0;i<activeChars.size();i++){
+        for(int i=0;i<activeChars.size();i++) {
             Character este = activeChars.get(i);
             este.Update();
-            for(int j =0; j<activeChars.size();j++){
+            for(int j =0; j<activeChars.size();j++) {            	
                 Character outro = activeChars.get(j);
                 if ( este != outro){
                     este.testaColisao(outro);
+                }
+                
+                if(outro.nextPhase() == true) {
+                	System.out.println("a");
                 }
             }
         }
@@ -68,7 +71,7 @@ public class Game {
     }
     
     public void Draw(GraphicsContext graphicsContext) {
-        for(Character c:activeChars){
+        for(Character c:activeChars) {
             c.Draw(graphicsContext);
         }
     }

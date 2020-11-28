@@ -15,7 +15,7 @@ public class Alien_Pink extends Alien{
 	@Override
 	public void start() {
 		setDirH(1);
-		setSpeed(8);
+		setSpeed(3);
 	}
 	
 	@Override
@@ -52,5 +52,12 @@ public class Alien_Pink extends Alien{
 	@Override
 	public int killPoints() {
 		return 20;
+	}
+	
+	public boolean nextPhase() {
+		if(contaKills() == 5) {
+			return true;
+		}
+		return false;
 	}
 }

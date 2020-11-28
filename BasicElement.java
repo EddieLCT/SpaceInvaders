@@ -16,6 +16,8 @@ public abstract class BasicElement implements Character{
     private boolean colidiu;
     private int direction_horizontal, direction_vertical;
     private int hit = 0;
+    private static int contadorkills = 0;
+    private boolean endPhase;
     
     public BasicElement(int startX,int startY){
         posX = startX;
@@ -72,9 +74,7 @@ public abstract class BasicElement implements Character{
         // Verifica colisão
         if ( ((p1x <= op1x && p2x >= op1x) && (p1y <= op1y && p2y >= op1y)) ||
              ((p1x <= op2x && p2x >= op2x) && (p1y <= op2y && p2y >= op2y)) ){        	
-            colidiu = true;
-            if (outro instanceof Alien_Blue) {
-            }
+            colidiu = true;      
             //outro.setColidiu();
         }
     }
@@ -166,6 +166,11 @@ public abstract class BasicElement implements Character{
         return(active);
     }
     
+    @Override
+    public boolean nextPhase() {
+    	return(endPhase);
+    }
+    
     public int contaHits() {
 		if (jaColidiu()) {
 			hit++;
@@ -174,12 +179,19 @@ public abstract class BasicElement implements Character{
 		return hit;
 	}
     
+    public int contaKills() {
+    	if(!isActive()) {
+			contadorkills++;
+    	}
+    	return contadorkills;
+    }
+    
     @Override
     public abstract void start();    
-        
+    
     @Override
     public abstract void Update();
-        
+    
     @Override
     public abstract void Draw(GraphicsContext graphicsContext);
 }

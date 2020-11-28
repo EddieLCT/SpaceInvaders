@@ -41,4 +41,11 @@ public class Alien_Green extends Alien{
 		// TODO Auto-generated method stub
 		return 10;
 	}
+	
+	public boolean nextPhase() {
+		if(contaKills() == 5) {
+			return true;
+		}
+		return false;
+	}
 }
