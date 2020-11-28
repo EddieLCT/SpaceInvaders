@@ -6,6 +6,7 @@ import javafx.scene.paint.Paint;
 
 public abstract class Alien extends BasicElement{
 	private static int contaPontos = 0;
+	private boolean endPhase = false;
 	
 	  public Alien(int px,int py){
 	        super(px,py);
@@ -35,10 +36,12 @@ public abstract class Alien extends BasicElement{
 	    	contaPontos = contaPontos + pontos;
 	    }
 	    
-	    public int getContaPontos( ) {
+	    public int getContaPontos() {
 	    	return contaPontos;
 	    }
 	    
+	    @Override
+	    public abstract boolean nextPhase(); 
 	    
 	    public abstract void Draw(GraphicsContext graphicsContext);
 	    public abstract int killPoints();
