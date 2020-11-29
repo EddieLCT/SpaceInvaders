@@ -183,11 +183,14 @@ public abstract class BasicElement implements Character{
 		return hit;
 	}
     
-    public int contaKills() {
+    public int getContaKills() {
     	if(!isActive()) {
 			contadorkills++;
     	}
     	return contadorkills;
+    }
+    public void setContaKills(int kills) {
+    	contadorkills = kills;
     }
     
     @Override

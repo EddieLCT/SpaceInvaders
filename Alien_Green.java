@@ -18,8 +18,9 @@ public class Alien_Green extends Alien{
 		if (jaColidiu()){
 			deactivate();
 		}
-		if(contaKills() == 5) {
+		if(getContaKills() == 5) {
 			setNextPhase(true);
+			setContaKills(0);
 		}
        
         	setPosX(getX() + getDirH() * getSpeed()); 	

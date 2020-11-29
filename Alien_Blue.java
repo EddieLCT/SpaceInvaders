@@ -26,8 +26,9 @@ public class Alien_Blue extends Alien{
 			System.out.println(getContaPontos());
 			hit = 0;
 		}	
-		if(contaKills() == 5) {
+		if(getContaKills() == 5) {
 			setNextPhase(true);
+			setContaKills(0);
 		}
         	setPosX(getX() + getDirH() * getSpeed()); 	
         	// Se chegou no lado direito da tela ...	            

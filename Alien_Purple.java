@@ -15,6 +15,28 @@ public class Alien_Purple extends Alien{
 		setSpeed(2);
 	}
 
+	 @Override
+	 public void Update(){
+	    if (jaColidiu()){
+	        deactivate();
+	    }
+	    if(getContaKills() == 5) {
+			setNextPhase(true);
+			setContaKills(0);
+		}
+	    else{	        	
+	    	setPosX(getX() + getDirH() * getSpeed()); 	
+	    	// Se chegou no lado direito da tela ...	            
+	        if (getX() >= getLMaxH()){	
+	            // Reposiciona no lado esquerdo e ...
+	            setPosX(getLMinH());
+	            setPosY(getY() + 70);
+	            // Sorteia o passo de avanço [1,5]	                
+	                setSpeed(Params.getInstance().nextInt(5)+1);  
+	        }
+	    }
+	 }
+	 
 	@Override
 	public void Draw(GraphicsContext graphicsContext) {
 		graphicsContext.drawImage(img, getX(), getY(), 48, 32);
@@ -23,11 +45,5 @@ public class Alien_Purple extends Alien{
 	@Override
 	public int killPoints() {
 		return 5;
-	}
-	public boolean nextPhase() {
-		if(contaKills() == 5) {
-			return true;
-		}
-		return false;
-	}
+	}	
 }

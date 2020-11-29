@@ -24,7 +24,12 @@ public class Alien_Pink extends Alien{
             deactivate();
             setContaPontos(killPoints());
 			System.out.println(getContaPontos());
-        }else{
+        }
+		if(getContaKills() == 5) {
+			setNextPhase(true);
+			setContaKills(0);
+		}
+		else{
         	int aux = random.nextInt(500);
         	if (getX() == aux) {
         		setPosX(aux);
@@ -52,12 +57,5 @@ public class Alien_Pink extends Alien{
 	@Override
 	public int killPoints() {
 		return 20;
+	}	
 	}
-	
-	public boolean nextPhase() {
-		if(contaKills() == 5) {
-			return true;
-		}
-		return false;
-	}
-}
