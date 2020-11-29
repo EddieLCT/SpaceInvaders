@@ -4,8 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Paint;
 
-public abstract class Alien extends BasicElement{
-	private static int contaPontos = 0;
+public abstract class Alien extends BasicElement{	
 	private boolean endPhase = false;
 	
 	  public Alien(int px,int py){
@@ -30,15 +29,7 @@ public abstract class Alien extends BasicElement{
 	                setSpeed(Params.getInstance().nextInt(5)+1);  
 	            }
 	        }
-	    }
-	    
-	    public void setContaPontos(int pontos) {
-	    	contaPontos = contaPontos + pontos;
-	    }
-	    
-	    public int getContaPontos() {
-	    	return contaPontos;
-	    }
+	    } 
 	    
 	    @Override
 	    public void setNextPhase(boolean b) {

@@ -3,7 +3,6 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Paint;
 
 public class Alien_Blue extends Alien{
-	private int hit = 0;
 	private int contadorkills = 0;
 	Image img = new Image("Enemy2.gif");
 	public Alien_Blue(int px, int py) {
@@ -22,9 +21,8 @@ public class Alien_Blue extends Alien{
 		//if (jaColidiu) {
 		if (contaHits() == 4){
 			deactivate();
-			setContaPontos(killPoints());
-			System.out.println(getContaPontos());
-			hit = 0;
+			contaScore(killPoints());
+			System.out.println(getScore());
 		}	
 		if(getContaKills() == 5) {
 			setNextPhase(true);

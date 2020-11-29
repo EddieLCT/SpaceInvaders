@@ -18,6 +18,7 @@ public abstract class BasicElement implements Character{
     private int hit = 0;
     private static int contadorkills = 0;
     private boolean endPhase;
+    private static int contaPontos = 0;
     
     public BasicElement(int startX,int startY){
         posX = startX;
@@ -189,12 +190,26 @@ public abstract class BasicElement implements Character{
     	}
     	return contadorkills;
     }
+    
     public void setContaKills(int kills) {
     	contadorkills = kills;
     }
     
     @Override
-    public abstract void start();    
+    public void setScore(int pontos) {
+    	contaPontos = pontos;
+    }
+    
+    @Override
+    public void contaScore(int score) {
+    	contaPontos = contaPontos + score;
+    }
+    
+    @Override
+    public int getScore() {
+    	return contaPontos;
+    }    
+   
     
     @Override
     public abstract void Update();

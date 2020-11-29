@@ -1,6 +1,7 @@
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -11,7 +12,7 @@ public class Game {
     private static Game game = null;
     private Canhao canhao;
     private List<Character> activeChars;
-    public static int score = 0;
+    private List<Integer> totalScore = new ArrayList<Integer>();
     private int fase = 1; 
     private boolean trocouFase = false;
     
@@ -70,7 +71,16 @@ public class Game {
 	        }
         }
         
-        for(Character c: activeChars) {
+        if (fase == 5) {
+        	for (Character c : activeChars) {
+                totalScore.add(c.getScore());
+                c.setScore(0);
+        	}
+        	fase = 1;
+        	game.Start();
+        }
+        
+        for(Character c: activeChars) {        	
             c.start();
         }        
     }
@@ -83,7 +93,7 @@ public class Game {
             for(int j =0; j<activeChars.size();j++) {
                 Character outro = activeChars.get(j);
                 if ( este != outro){
-                    este.testaColisao(outro);
+                    este.testaColisao(outro);                    
                 }
             }
             if (este.getNextPhase() == true) {
@@ -92,7 +102,7 @@ public class Game {
             		trocouFase = true;
                 }
             }
-        }    	
+    	}    	
     }
     
     public void trocarFase() {

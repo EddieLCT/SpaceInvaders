@@ -22,8 +22,8 @@ public class Alien_Pink extends Alien{
     public void Update(){
 		if (jaColidiu()){
             deactivate();
-            setContaPontos(killPoints());
-			System.out.println(getContaPontos());
+            contaScore(killPoints());
+			System.out.println(getScore());
         }
 		if(getContaKills() == 5) {
 			setNextPhase(true);

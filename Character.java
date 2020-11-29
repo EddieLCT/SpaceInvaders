@@ -11,10 +11,13 @@ public interface Character {
     int getY();
     int getAltura();
     int getLargura();
+    int getScore();
     
     void testaColisao(Character c);
     boolean jaColidiu();
     void setColidiu();
+    void setScore(int score);
+    public void contaScore(int score);
     
     void start();
     boolean isActive();

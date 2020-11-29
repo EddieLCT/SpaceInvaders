@@ -17,6 +17,8 @@ public class Alien_Green extends Alien{
     public void Update(){
 		if (jaColidiu()){
 			deactivate();
+			contaScore(killPoints());
+			System.out.println(getScore());
 		}
 		if(getContaKills() == 5) {
 			setNextPhase(true);
