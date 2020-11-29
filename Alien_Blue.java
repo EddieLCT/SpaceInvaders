@@ -14,7 +14,7 @@ public class Alien_Blue extends Alien{
 	@Override
 	public void start() {
 		setDirH(1);
-		setSpeed(1);
+		setSpeed(8);
 	}
 	
 	@Override

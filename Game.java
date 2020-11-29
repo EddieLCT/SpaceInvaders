@@ -45,14 +45,14 @@ public class Game {
         if (fase == 1) {
         	System.out.println("FASE " + fase + ":");
         for(int i=0; i<5; i++){
-            activeChars.add(new Alien_Green(100+(i*60),60+i*40));
+            activeChars.add(new Alien_Purple(100+(i*60),60+i*40));
         }
         
         }
         if (fase == 2) {
         	System.out.println("FASE " + fase + ":");
 	        for(int i=0; i<5; i++){
-	            activeChars.add(new Alien_Blue(100+(i*60),60+i*40));
+	            activeChars.add(new Alien_Green(100+(i*60),60+i*40));
 	        }
         }
         
@@ -66,7 +66,7 @@ public class Game {
         if (fase == 4) {
         	System.out.println("FASE 4:");
 	        for(int i=0; i<5; i++){
-	            activeChars.add(new Alien_Purple(100+(i*60),60+i*40));
+	            activeChars.add(new Alien_Blue(100+(i*60),60+i*40));
 	        }
         }
         
