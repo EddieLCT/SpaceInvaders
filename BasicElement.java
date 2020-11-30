@@ -209,7 +209,6 @@ public abstract class BasicElement implements Character{
     public int getScore() {
     	return contaPontos;
     }    
-   
     
     @Override
     public abstract void Update();

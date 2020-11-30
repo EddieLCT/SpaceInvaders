@@ -24,8 +24,8 @@ public class Game {
             game = new Game();
         }
         return(game);
-    }
-    
+    }    
+
     public void addChar(Character c){
         activeChars.add(c);
         c.start();
@@ -44,28 +44,24 @@ public class Game {
         activeChars.add(canhao);
         
         if (fase == 1) {
-        	System.out.println("FASE " + fase + ":");
         for(int i=0; i<5; i++){
             activeChars.add(new Alien_Purple(100+(i*60),60+i*40));
         }
         
         }
         if (fase == 2) {
-        	System.out.println("FASE " + fase + ":");
 	        for(int i=0; i<5; i++){
 	            activeChars.add(new Alien_Green(100+(i*60),60+i*40));
 	        }
         }
         
         if (fase == 3) {
-        	System.out.println("FASE 3:");
 	        for(int i=0; i<5; i++){
 	            activeChars.add(new Alien_Pink(100+(i*60),60+i*40));
 	        }
         }
         
         if (fase == 4) {
-        	System.out.println("FASE 4:");
 	        for(int i=0; i<5; i++){
 	            activeChars.add(new Alien_Blue(100+(i*60),60+i*40));
 	        }
@@ -80,12 +76,12 @@ public class Game {
         	game.Start();
         }
         
-        for(Character c: activeChars) {        	
+        for(Character c: activeChars) {
             c.start();
-        }        
+        }
     }
     
-    public void Update(long currentTime, long deltaTime) {    
+    public void Update(long currentTime, long deltaTime) {
     	trocarFase();
     	for(int i=0;i<activeChars.size();i++) {
             Character este = activeChars.get(i);
@@ -102,15 +98,26 @@ public class Game {
             		trocouFase = true;
                 }
             }
-    	}    	
+    	}
     }
     
-    public void trocarFase() {
-    	if (trocouFase == true) {    		
+    private void trocarFase() {
+    	if (trocouFase == true) {
     		fase++;
     		trocouFase = false;
     		game.Start();	
     	}
+    }
+    
+    public int score() {
+    	for (Character c : activeChars) {
+            return c.getScore();
+    	}
+    	return 0;
+    }
+    
+    public int getFase() {
+    	return fase;
     }
     
     public void OnInput(KeyCode keyCode, boolean isPressed) {

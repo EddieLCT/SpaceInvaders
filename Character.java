@@ -6,7 +6,8 @@ import javafx.scene.paint.Paint;
  * Represents the basic game character
  * @author Bernardo Copstein and Rafael Copstein
  */
-public interface Character {
+public interface Character {	
+
     int getX();
     int getY();
     int getAltura();

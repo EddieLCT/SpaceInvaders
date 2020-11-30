@@ -20,7 +20,6 @@ public class Alien_Purple extends Alien{
 	    if (jaColidiu()){
 	        deactivate();
 	        contaScore(killPoints());
-			System.out.println(getScore());
 	    }
 	    if(getContaKills() == 5) {
 			setNextPhase(true);

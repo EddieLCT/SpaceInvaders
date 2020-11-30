@@ -22,7 +22,6 @@ public class Alien_Blue extends Alien{
 		if (contaHits() == 4){
 			deactivate();
 			contaScore(killPoints());
-			System.out.println(getScore());
 		}	
 		if(getContaKills() == 5) {
 			setNextPhase(true);
@@ -38,7 +37,7 @@ public class Alien_Blue extends Alien{
                 	deactivate();
                 }                
                 // Sorteia o passo de avanço [1,5]	                
-                setSpeed(Params.getInstance().nextInt(2)+1);            
+                setSpeed(Params.getInstance().nextInt(7)+4);            
         }            
     }
 	

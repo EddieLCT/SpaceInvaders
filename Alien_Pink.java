@@ -23,7 +23,6 @@ public class Alien_Pink extends Alien{
 		if (jaColidiu()){
             deactivate();
             contaScore(killPoints());
-			System.out.println(getScore());
         }
 		if(getContaKills() == 5) {
 			setNextPhase(true);
@@ -42,7 +41,7 @@ public class Alien_Pink extends Alien{
                 setPosX(getLMinH());
                 setPosY(getY() + 70);
                 // Sorteia o passo de avanço [1,5]	                
-                setSpeed(Params.getInstance().nextInt(5)+1);  
+                setSpeed(Params.getInstance().nextInt(6)+3);  
             }
         }
     }
@@ -51,7 +50,7 @@ public class Alien_Pink extends Alien{
 	public void Draw(GraphicsContext graphicsContext) {
 		/*graphicsContext.setFill(Paint.valueOf("#FF1493"));
         graphicsContext.fillOval(getX(), getY(), 32, 32);*/
-		graphicsContext.drawImage(img, getX(), getY(), 32, 52);
+		graphicsContext.drawImage(img, getX(), getY(), 30, 52);
 	}
 
 	@Override
