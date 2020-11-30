@@ -70,6 +70,7 @@ public class Game {
         if (fase == 5) {
         	for (Character c : activeChars) {
                 totalScore.add(c.getScore());
+                c.setContaVidas(3);
                 c.setScore(0);
         	}
         	fase = 1;
@@ -83,6 +84,7 @@ public class Game {
     
     public void Update(long currentTime, long deltaTime) {
     	trocarFase();
+    	gameOver();
     	for(int i=0;i<activeChars.size();i++) {
             Character este = activeChars.get(i);
             este.Update();
@@ -109,6 +111,13 @@ public class Game {
     	}
     }
     
+    public int getVidas() {
+    	for (Character c : activeChars) {
+            return c.contaVidas();
+    	}
+    	return 0;
+    }
+    
     public int score() {
     	for (Character c : activeChars) {
             return c.getScore();
@@ -120,9 +129,18 @@ public class Game {
     	return fase;
     }
     
+    public void gameOver() {
+    	for (Character c : activeChars) {
+            if(c.getCanhaoMorreu() == true) {
+            	fase = 5;
+            	game.Start();
+            }
+    	}
+    }
+    
     public void OnInput(KeyCode keyCode, boolean isPressed) {
         canhao.OnInput(keyCode, isPressed);
-    }
+    }   
     
     public void Draw(GraphicsContext graphicsContext) {
         for(Character c:activeChars) {

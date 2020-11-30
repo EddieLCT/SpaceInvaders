@@ -21,11 +21,16 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
     
      @Override
     public void Update() {
-    	setPosX(getX() + getDirH() * getSpeed());
-
-    	if (contaHits() == 3){
-    		deactivate();
-    	}
+    	 if (jaColidiu()) {
+    		 setCanhaoColidiu(true);    		
+    	 }
+    	 
+    	 if(contaHits() == 3) {
+    		 //deactivate();
+    		 setContaVidas(0);
+    		 setCanhaoMorreu(true);
+    	 }
+    	 setPosX(getX() + getDirH() * getSpeed());    	
     }
 
     @Override

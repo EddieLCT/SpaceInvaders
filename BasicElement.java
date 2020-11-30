@@ -19,6 +19,9 @@ public abstract class BasicElement implements Character{
     private static int contadorkills = 0;
     private boolean endPhase;
     private static int contaPontos = 0;
+    private boolean canhaoColidiu = false;
+    private static int vidas = 3;
+    private boolean canhaoMorreu = false;
     
     public BasicElement(int startX,int startY){
         posX = startX;
@@ -176,13 +179,36 @@ public abstract class BasicElement implements Character{
     	endPhase = b;
     }
     
+    @Override
     public int contaHits() {
 		if (jaColidiu()) {
 			hit++;
 			setColidiu(false);
 		}
 		return hit;
-	}
+	}    
+    
+    //VIDA DO PLAYER
+    @Override
+    public void setCanhaoColidiu(boolean b) {
+    	this.canhaoColidiu = b;
+    }
+    
+    @Override
+    public boolean getCanhaoColidiu() {
+    	return (canhaoColidiu);
+    }
+    
+    @Override
+    public int contaVidas() {
+    	if(canhaoColidiu == true) {    		
+    		vidas--;
+    		setCanhaoColidiu(false);
+    		setColidiu(false);
+    		return vidas;
+    	} 
+    	return vidas;
+    }
     
     public int getContaKills() {
     	if(!isActive()) {
@@ -191,6 +217,25 @@ public abstract class BasicElement implements Character{
     	return contadorkills;
     }
     
+    @Override
+    public void setContaVidas(int vidas) {
+    	BasicElement.vidas = vidas;
+    } 
+    
+    @Override
+    public int getContaVidas() {
+    	return vidas;
+    }
+    
+    //GAME-OVER
+    public void setCanhaoMorreu(boolean b) {
+    	canhaoMorreu = b;
+    }
+    public boolean getCanhaoMorreu() {
+    	return canhaoMorreu;
+    }   
+    
+    //PONTUAÇÃO
     public void setContaKills(int kills) {
     	contadorkills = kills;
     }
@@ -208,7 +253,7 @@ public abstract class BasicElement implements Character{
     @Override
     public int getScore() {
     	return contaPontos;
-    }    
+    }
     
     @Override
     public abstract void Update();

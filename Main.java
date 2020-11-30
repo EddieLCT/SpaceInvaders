@@ -77,12 +77,18 @@ public class Main extends Application {
                 String score = "SCORE: " + Game.getInstance().score();                
                 gc.fillText(score, 700, 36);
                 gc.strokeText(score, 700, 36);                
-                gc.setFont(Font.font("TAHOMA"));
+                gc.setFont(Font.font("Arcade Classic"));
                 gc.setStroke(Color.WHITE);
                 
+                //MOSTRAR FASES
                 String fase = "FASE: " + Game.getInstance().getFase();
                 gc.fillText(fase, 700, 20);
-                gc.strokeText(fase, 700, 20); 
+                gc.strokeText(fase, 700, 20);
+                
+                //MOSTRAR VIDAS
+                String vidas = "VIDAS: " + Game.getInstance().getVidas();
+                gc.fillText(vidas, 15, 26);
+                gc.strokeText(vidas, 15, 26);
             }
             
         }.start();
