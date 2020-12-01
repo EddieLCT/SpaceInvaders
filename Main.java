@@ -4,6 +4,7 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.value.ChangeListener;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -12,6 +13,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -26,6 +28,7 @@ import javafx.stage.Stage;
  */
 
 public class Main extends Application {
+	private boolean pause = false;
     @Override
     public void start(Stage stage) throws Exception {
         // Initialize Window
@@ -89,8 +92,26 @@ public class Main extends Application {
                 String vidas = "VIDAS: " + Game.getInstance().getVidas();
                 gc.fillText(vidas, 15, 26);
                 gc.strokeText(vidas, 15, 26);
+                
+                stage.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent> () {
+
+					@Override
+					public void handle(KeyEvent t) {
+						if (t.getCode() == KeyCode.ESCAPE && !pause) {
+							pause = true;
+		                    if (pause) {
+		                    	stop();
+		                    }
+						}
+						else if (t.getCode() == KeyCode.ESCAPE && pause) {
+							pause = false;
+							if (!pause) {
+								start();
+		                    }
+						}
+					}					
+            });
             }
-            
         }.start();
 
         // Show window
