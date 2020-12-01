@@ -73,13 +73,12 @@ public abstract class BasicElement implements Character{
         int op1x = outro.getX();
         int op1y = outro.getY();
         int op2x = op1x+outro.getLargura();
-        int op2y = op1y+outro.getAltura();
+        int op2y = op1y+outro.getAltura();        
         
         // Verifica colis√£o
         if ( ((p1x <= op1x && p2x >= op1x) && (p1y <= op1y && p2y >= op1y)) ||
              ((p1x <= op2x && p2x >= op2x) && (p1y <= op2y && p2y >= op2y)) ){        	
-            colidiu = true;      
-            //outro.setColidiu();
+            colidiu = true;
         }
     }
     
@@ -161,8 +160,8 @@ public abstract class BasicElement implements Character{
     }
     
     @Override
-    public void setColidiu(){
-        colidiu = true;
+    public void setColidiu(boolean aux){
+        colidiu = aux;
     }
     
     @Override
@@ -186,7 +185,7 @@ public abstract class BasicElement implements Character{
 			setColidiu(false);
 		}
 		return hit;
-	}    
+	}
     
     //VIDA DO PLAYER
     @Override
@@ -206,7 +205,7 @@ public abstract class BasicElement implements Character{
     		setCanhaoColidiu(false);
     		setColidiu(false);
     		return vidas;
-    	} 
+    	}
     	return vidas;
     }
     
@@ -220,7 +219,7 @@ public abstract class BasicElement implements Character{
     @Override
     public void setContaVidas(int vidas) {
     	BasicElement.vidas = vidas;
-    } 
+    }
     
     @Override
     public int getContaVidas() {
@@ -233,7 +232,7 @@ public abstract class BasicElement implements Character{
     }
     public boolean getCanhaoMorreu() {
     	return canhaoMorreu;
-    }   
+    }
     
     //PONTUA«√O
     public void setContaKills(int kills) {

@@ -90,7 +90,13 @@ public class Game {
             este.Update();
             for(int j =0; j<activeChars.size();j++) {
                 Character outro = activeChars.get(j);
-                if ( este != outro){
+                if (este instanceof Alien && outro instanceof Alien) {
+                	este.setColidiu(false);
+                }
+                else if (este instanceof Alien && outro instanceof EnemyShot) {
+                	este.setColidiu(false);
+                }
+                else if ( este != outro){
                     este.testaColisao(outro);                    
                 }
             }

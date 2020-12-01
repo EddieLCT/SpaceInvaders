@@ -15,7 +15,7 @@ public interface Character {
     
     void testaColisao(Character c);
     boolean jaColidiu();    
-    void setColidiu();    
+    void setColidiu(boolean aux);    
     
     void start();
     boolean isActive();    
