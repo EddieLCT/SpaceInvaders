@@ -30,8 +30,8 @@ public class Game {
     private List<Character> activeChars;
     private List<Integer> totalScore = new ArrayList<Integer>();
     private List<Integer> scores = new ArrayList<Integer>();
-    private int fase = 4; 
-    private boolean trocouFase = false;
+    private int fase = 1; 
+    private boolean trocouFase = false;    
     
     private Game(){
     }

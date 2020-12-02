@@ -36,7 +36,7 @@ public class Alien_Blue extends Alien{
                 if(getY() == (getLMinV() + 100)) {
                 	deactivate();
                 }                
-                // Sorteia o passo de avanÃ§o [1,5]	                
+                // Sorteia o passo de avanço [1,5]	                
                 setSpeed(Params.getInstance().nextInt(7)+4);            
         }            
     }

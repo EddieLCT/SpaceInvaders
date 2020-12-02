@@ -40,7 +40,7 @@ public class Alien_Pink extends Alien{
                 // Reposiciona no lado esquerdo e ...
                 setPosX(getLMinH());
                 setPosY(getY() + 70);
-                // Sorteia o passo de avanÃ§o [1,5]	                
+                // Sorteia o passo de avanço [1,5]	                
                 setSpeed(Params.getInstance().nextInt(6)+3);  
             }
         }

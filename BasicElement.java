@@ -22,6 +22,7 @@ public abstract class BasicElement implements Character{
     private boolean canhaoColidiu = false;
     private static int vidas = 3;
     private boolean canhaoMorreu = false;
+    protected static double nextShot = 0;
     
     public BasicElement(int startX,int startY){
         posX = startX;

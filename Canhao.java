@@ -9,6 +9,7 @@ import javafx.scene.paint.Paint;
  */
 public class Canhao extends BasicElement implements KeyboardCtrl{
 	Image img = new Image("spaceship.png");
+	private double shotRate = 300;
     public Canhao(int px,int py){
         super(px,py);
     }
@@ -43,7 +44,8 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
             int dh = isPressed ? 1 : 0;
             setDirH(dh);
         }
-        if (keyCode == KeyCode.SPACE){
+        if (keyCode == KeyCode.SPACE && System.currentTimeMillis() > nextShot){
+            nextShot = System.currentTimeMillis() + shotRate;
             Game.getInstance().addChar(new CanhaoShot(getX()+16,getY()-32));
         }
         //if (keyCode == KeyCode.UP) do nothing

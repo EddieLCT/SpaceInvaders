@@ -33,7 +33,7 @@ public class CanhaoShot extends Shot{
 
 	/*@Override
 	public void testaColisao(Character outro) {
-        // N√£o verifica colis√£o de um tiro com outro tiro
+        // N„o verifica colis„o de um tiro com outro tiro
         if (outro instanceof Shot){
             return;
         }else{

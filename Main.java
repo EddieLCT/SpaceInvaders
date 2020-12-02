@@ -28,6 +28,8 @@ import javafx.stage.Stage;
  */
 
 public class Main extends Application {
+	private double escRate = 300;
+    protected static double nextRate = 0;
 	private boolean pause = false;
     @Override
     public void start(Stage stage) throws Exception {
@@ -91,25 +93,28 @@ public class Main extends Application {
                 //MOSTRAR VIDAS
                 String vidas = "VIDAS: " + Game.getInstance().getVidas();
                 gc.fillText(vidas, 15, 26);
-                gc.strokeText(vidas, 15, 26);
+                gc.strokeText(vidas, 15, 26);                
+                
                 
                 stage.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent> () {
 
 					@Override
 					public void handle(KeyEvent t) {
-						if (t.getCode() == KeyCode.ESCAPE && !pause) {
+						if (t.getCode() == KeyCode.ESCAPE && !pause && System.currentTimeMillis() > nextRate) {
+							nextRate = System.currentTimeMillis() + escRate;
 							pause = true;
 		                    if (pause) {
 		                    	stop();
 		                    }
 						}
-						else if (t.getCode() == KeyCode.ESCAPE && pause) {
+						else if (t.getCode() == KeyCode.ESCAPE && pause && System.currentTimeMillis() > nextRate) {
+							nextRate = System.currentTimeMillis() + escRate;
 							pause = false;
 							if (!pause) {
 								start();
 		                    }
 						}
-					}					
+					}
             });
             }
         }.start();

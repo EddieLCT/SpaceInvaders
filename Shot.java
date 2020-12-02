@@ -14,7 +14,7 @@ public abstract class Shot extends BasicElement{
     @Override
     public void start(){
         setDirV(-1);
-        setSpeed(3);
+        setSpeed(5);
     }
             
     @Override
