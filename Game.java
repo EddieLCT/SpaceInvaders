@@ -1,3 +1,6 @@
+//Caroline Lewandowski Rodrigues - 20102626
+//Eduardo Lucchese Costa de Toledo - 18200096-8
+//https://github.com/EddieLCT/SpaceInvaders
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.shape.Path;
@@ -19,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
-
 /**
  * Handles the game lifecycle and behavior
  * @author Bernardo Copstein and Rafael Copstein

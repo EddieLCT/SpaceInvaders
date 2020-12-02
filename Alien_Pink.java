@@ -1,3 +1,6 @@
+//Caroline Lewandowski Rodrigues - 20102626
+//Eduardo Lucchese Costa de Toledo - 18200096-8
+//https://github.com/EddieLCT/SpaceInvaders
 import java.util.Random;
 
 import javafx.scene.canvas.GraphicsContext;
