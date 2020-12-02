@@ -58,6 +58,6 @@ public class Alien_Pink extends Alien{
 
 	@Override
 	public int killPoints() {
-		return 20;
+		return 15;
 	}	
 	}

@@ -23,7 +23,7 @@ public class Alien_Blue extends Alien{
 	@Override
     public void Update(){
 		//if (jaColidiu) {
-		if (contaHits() == 4){
+		if (contaHits() == 2){
 			deactivate();
 			contaScore(killPoints());
 		}	
@@ -45,7 +45,6 @@ public class Alien_Blue extends Alien{
         }            
     }
 	
-	
 	@Override
 	public void Draw(GraphicsContext graphicsContext) {
 		graphicsContext.drawImage(img, getX(), getY(), 32, 52);  
@@ -53,6 +52,6 @@ public class Alien_Blue extends Alien{
 
 	@Override
 	public int killPoints() {
-		return 15;
+		return 20;
 	}
 }

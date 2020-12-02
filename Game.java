@@ -56,8 +56,7 @@ public class Game {
     
     public void Start() {
         // Repositório de personagens
-        activeChars = new LinkedList();
-        
+        activeChars = new LinkedList();        
         // Adiciona o canhao
         canhao = new Canhao(400,550);
         activeChars.add(canhao);

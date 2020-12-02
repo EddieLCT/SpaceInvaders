@@ -33,9 +33,9 @@ public class Alien_Green extends Alien{
                 // Reposiciona no lado esquerdo e ...
                 setPosX(getLMinH());
                 setPosY(getY() + 70);
-                // MANTEM O CONTROLE DE GRUPO                
+                // Linha retirada para controle de grupo:                
                // setSpeed(Params.getInstance().nextInt(5)+1);            
-        }
+            }
     }
 	
 	@Override
