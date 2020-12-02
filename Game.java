@@ -1,6 +1,20 @@
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
+import javafx.scene.shape.Path;
+
 import java.util.List;
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -69,10 +83,12 @@ public class Game {
         
         if (fase == 5) {
         	for (Character c : activeChars) {
-                totalScore.add(c.getScore());
+        		totalScore.add(c.getScore());
+        		 writeLine(c.getScore());                
                 c.setContaVidas(3);
                 c.setScore(0);
-        	}
+                
+        	}        	
         	fase = 1;
         	game.Start();
         }
@@ -143,6 +159,52 @@ public class Game {
             }
     	}
     }
+    
+    private void readLine() throws FileNotFoundException {
+    	File arquivo = new File("C:/Users/carol/eclipse-workspace/SpaceInvaders/Scores.txt");
+    	if (!arquivo.exists()) {
+    	 System.err.println("Arquivo não existe!!");
+    	}
+
+    	//cria instancia de Scanner para ler de arquivo
+    	Scanner sc = new Scanner(arquivo);
+    	int lineNumber = 1;    	
+    	while (sc.hasNextLine()) {
+	    	 //lê a proxima linha!
+	    	 String linha = sc.nextLine();
+	    	 System.out.println("linha " + lineNumber + ": "  + linha);
+	    	 int aux = Integer.parseInt(linha);
+	    	 totalScore.add(aux);
+    	}
+    	//fechando os recursos
+    	sc.close();
+    	}              
+         
+    private void writeLine(int score) {
+    	    File arquivo = new File("C:/Users/carol/eclipse-workspace/SpaceInvaders/Scores.txt");
+
+    	    try{
+    	        if (!arquivo.exists()) {
+    	            //cria um arquivo (vazio)!
+    	            System.out.println("Arquivo não existe. Criando arquivo...");
+    	            arquivo.createNewFile();
+    	        }
+
+    	        //abre arquivo para escrita
+    	        FileWriter fw = new FileWriter(arquivo, true);
+    	        BufferedWriter bw = new BufferedWriter(fw);
+    	        for (Integer i : totalScore) {
+                    bw.write("\n" + i);
+                }
+    	        //fechando os recursos 
+    	        bw.close();
+    	        fw.close();
+
+    	    } catch (IOException ioe) {
+    	        System.err.println("Erro ao escrever no arquivo2.txt!!");
+    	    }
+    	}
+    
     
     public void OnInput(KeyCode keyCode, boolean isPressed) {
         canhao.OnInput(keyCode, isPressed);
